@@ -1,0 +1,20 @@
+# https://hub.docker.com/_/mysql
+version: "3.1"
+
+services:
+  mysql-db:
+    container_name: mysql-db
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: nodejs
+    volumes:
+      - my-db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+volumes:
+  my-db:
+# docker exec -it mysql-db bash
+# mysql -p
+# use nodejs;
