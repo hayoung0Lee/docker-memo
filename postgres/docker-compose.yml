@@ -1,0 +1,26 @@
+# https://hub.docker.com/_/postgres
+version: "3.1"
+
+services:
+  postgres-db:
+    container_name: postgres-db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # 8080에 adminer가 있다.
+  postgres-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+volumes:
+  postgres-db:
+# docker exec -it mysql-db bash
+# mysql -p
+# use nodejs;
